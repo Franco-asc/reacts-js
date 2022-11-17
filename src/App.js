@@ -1,16 +1,19 @@
+import './styles/App.scss';
+import { BrowserRouter, Routes, Route } from 'react-router-dom'
+import { Home } from './pages/Home'
+import { Category } from './pages/Category';
+import { Detail } from './pages/Detail';
 
-import './App.css';
-import ItemsListContainer from './components/ItemsListContainer/ItemsListContainer';
-import NavBar from './components/NavBar/NavBar';
-import "bootstrap/dist/css/bootstrap.min.css"
+
 function App() {
   return (
-    <>
-    <NavBar/>
-    
-    <ItemsListContainer name="Bienvenidos a Barber Shop Rosario, la mejor distribuidora del pais!!!"/>
-    </>
-    
+    <BrowserRouter>
+    <Routes>
+      <Route path={"/"} element={<Home />} />
+      <Route path={"/categoria/:categoryId"} element={<Category />} />
+      <Route path={"/product/:productId"} element={<Detail />} />
+    </Routes>
+    </BrowserRouter>
   );
 }
 
